@@ -1,0 +1,9 @@
+#!/usr/bin/expect
+spawn /opt/cisco/anyconnect/bin/vpn connect your-vpn-domain
+expect ".*Group:.*"
+send "your-group\r"
+expect '.*Username:.*'
+send "your-user-name\r"
+expect '.*Password:.*'
+send "your-password\r"
+expect ".*Connected"
