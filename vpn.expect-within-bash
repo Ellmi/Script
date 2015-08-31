@@ -1,0 +1,14 @@
+#!/bin/bash
+killAll 'Cisco AnyConnect Secure Mobility Client' 2>/dev/null
+/opt/cisco/anyconnect/bin/vpn disconnect > /dev/null
+/usr/bin/expect << END
+spawn /opt/cisco/anyconnect/bin/vpn connect your-vpn-domain
+expect ".*Group:.*"
+send "your-group\r"
+expect '.*Username:.*'
+send "your-usename\r"
+expect '.*Password:.*'
+send "your-password\r"
+expect ".*Connected"
+END
+open -g '/Applications/Cisco/Cisco AnyConnect Secure Mobility Client.app'
