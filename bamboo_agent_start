@@ -1,0 +1,4 @@
+#!/bin/bash
+# chkconfig: 2345 99 01
+# Description:       Enable bamboo agent service provided by daemon.
+nohup java -jar atlassian-bamboo-agent-installer-5.7.2.jar your-remote-bamboo-agent-dns:8085/agentServer/ &
